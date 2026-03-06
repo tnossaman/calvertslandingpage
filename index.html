@@ -12,7 +12,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--ww);color:var(--tx);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;padding-bottom:68px;}
-.ub{background:var(--grn);padding:.65rem 1rem;color:#fff;text-align:center;}
+.ub{background:var(--grn);padding:.6rem 1rem;color:#fff;text-align:center;}
 .ub-text{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.6;}
 .ub-text a{color:#fff;font-weight:500;text-decoration:underline;}
 .ub-cd{display:flex;align-items:center;justify-content:center;gap:.4rem;font-size:.68rem;margin-top:.3rem;color:rgba(255,255,255,.85);}
@@ -23,11 +23,13 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,248,244,.97);border-bo
 .nav-phone{font-size:.75rem;letter-spacing:.1em;color:var(--txl);text-decoration:none;}
 .nav-links{display:none;}.nav-cta-d{display:none;}
 /* HERO */
-.hero{position:relative;overflow:hidden;background:var(--ww);padding:4rem var(--r) 3.5rem;min-height:88vh;display:flex;align-items:center;}
+.hero{position:relative;overflow:hidden;background:var(--ww);padding:2.5rem var(--r) 2.5rem;display:flex;align-items:center;min-height:auto;}
 .hero-bg{position:absolute;inset:-20% 0;background:radial-gradient(ellipse at 70% 40%,var(--pg) 0%,var(--pb) 45%,transparent 72%);pointer-events:none;will-change:transform;}
 /* ANIMATED PLANT */
-.hero-plant{position:absolute;right:-2rem;bottom:0;pointer-events:none;will-change:transform;}
-.plant-svg{width:min(300px,50vw);height:auto;display:block;}
+.hero-plant{position:absolute;right:-1.5rem;bottom:-2rem;pointer-events:none;width:min(180px,38vw);z-index:0;}
+.plant-svg{width:100%;height:auto;display:block;opacity:.15;}
+.plant-svg .plant-svg-inner{animation:plantBob 5s ease-in-out infinite 2.5s;}
+@keyframes plantBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .plant-stem{stroke-dasharray:700;stroke-dashoffset:700;animation:growStem 2s ease forwards .2s;}
 .plant-leaf{opacity:0;transform-box:fill-box;transform-origin:50% 100%;}
 .pl1{animation:leafIn .7s cubic-bezier(.34,1.56,.64,1) forwards 1s;}
@@ -40,24 +42,20 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,248,244,.97);border-bo
 @keyframes growStem{to{stroke-dashoffset:0}}
 @keyframes leafIn{0%{opacity:0;transform:scale(.2) rotate(-20deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
 @keyframes budPop{0%{opacity:0;transform:scale(.1)}100%{opacity:1;transform:scale(1)}}
-/* floating bob after load */
-.hero-plant{animation:plantBob 5s ease-in-out infinite 2.5s;}
-@keyframes plantBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.hero-content{position:relative;z-index:2;width:100%;animation:fadeUp .9s ease both;}
-.eyebrow{display:flex;align-items:center;gap:1rem;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lf);margin-bottom:1.5rem;}
+.hero-content{position:relative;z-index:2;width:100%;animation:fadeUp .9s ease both;padding-right:0;}
+.eyebrow{display:flex;align-items:center;gap:1rem;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lf);margin-bottom:1.2rem;}
 .eyebrow::before{content:'';width:28px;height:1px;background:var(--lf);flex-shrink:0;}
-.hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(3.4rem,13vw,7.5rem);line-height:.9;font-weight:600;color:var(--tx);margin-bottom:1.5rem;}
+.hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,12vw,7.5rem);line-height:.92;font-weight:600;color:var(--tx);margin-bottom:1.2rem;max-width:62%;}
 .hero-h em{font-style:italic;font-weight:300;color:var(--grn);}
-.hero-sub{font-size:.95rem;line-height:1.75;color:var(--txm);margin-bottom:2.2rem;max-width:520px;}
-.hero-actions{display:flex;flex-direction:column;gap:.9rem;}
-.btn-green{background:var(--lf);color:#fff;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:1.05rem 1.8rem;border-radius:1px;border:none;cursor:pointer;text-decoration:none;display:block;text-align:center;transition:background .2s,box-shadow .2s;}
+.hero-sub{font-size:.9rem;line-height:1.7;color:var(--txm);margin-bottom:1.8rem;max-width:58%;}
+.hero-actions{display:flex;flex-direction:column;gap:.8rem;}
+.btn-green{background:var(--lf);color:#fff;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:1rem 1.8rem;border-radius:1px;border:none;cursor:pointer;text-decoration:none;display:block;text-align:center;transition:background .2s,box-shadow .2s;}
 .btn-green:hover{background:var(--grn);box-shadow:0 8px 28px rgba(46,107,46,.22);}
-.btn-ghost{background:transparent;color:var(--txm);font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;padding:1rem 1.8rem;border-radius:1px;border:1px solid var(--tan);text-decoration:none;display:block;text-align:center;transition:border-color .2s,color .2s;}
+.btn-ghost{background:transparent;color:var(--txm);font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;padding:.95rem 1.8rem;border-radius:1px;border:1px solid var(--tan);text-decoration:none;display:block;text-align:center;transition:border-color .2s,color .2s;}
 .btn-ghost:hover{border-color:var(--grn);color:var(--grn);}
-/* SLOT BADGE — fixed wrapping */
-.slot-badge{display:inline-flex;align-items:flex-start;gap:.6rem;background:#fff7ed;border:1px solid #f59e0b;border-radius:12px;padding:.6rem .9rem;margin-top:1.4rem;max-width:240px;}
+.slot-badge{display:inline-flex;align-items:flex-start;gap:.6rem;background:#fff7ed;border:1px solid #f59e0b;border-radius:12px;padding:.6rem .9rem;margin-top:1rem;max-width:220px;}
 .slot-dot{width:9px;height:9px;min-width:9px;background:#f59e0b;border-radius:50%;flex-shrink:0;margin-top:3px;animation:pdot 1.5s ease-in-out infinite;}
-.slot-txt{font-size:.74rem;color:#92400e;line-height:1.45;}
+.slot-txt{font-size:.73rem;color:#92400e;line-height:1.45;}
 .slot-txt strong{font-weight:500;display:block;}
 @keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.65)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -66,144 +64,147 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,248,244,.97);border-bo
 .d1.vis{animation-delay:.1s}.d2.vis{animation-delay:.2s}
 /* STATS */
 .stats-bar{background:var(--cr);border-top:1px solid var(--bdl);border-bottom:1px solid var(--bdl);display:grid;grid-template-columns:1fr 1fr;}
-.stat-item{padding:1.8rem 1rem;text-align:center;border-right:1px solid var(--bdl);border-bottom:1px solid var(--bdl);}
+.stat-item{padding:1.2rem .75rem;text-align:center;border-right:1px solid var(--bdl);border-bottom:1px solid var(--bdl);}
 .stat-item:nth-child(2n){border-right:none;}.stat-item:nth-last-child(-n+2){border-bottom:none;}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--grn);line-height:1;display:block;}
-.stat-l{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txf);margin-top:.4rem;display:block;}
-.section-label{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lf);margin-bottom:.8rem;display:block;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,7vw,3.8rem);font-weight:600;line-height:1.05;color:var(--tx);}
-.section-title em{font-style:italic;font-weight:300;color:var(--grn);}.sh{margin-bottom:2.5rem;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--grn);line-height:1;display:block;}
+.stat-l{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txf);margin-top:.35rem;display:block;}
+.section-label{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lf);margin-bottom:.7rem;display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,6.5vw,3.8rem);font-weight:600;line-height:1.05;color:var(--tx);}
+.section-title em{font-style:italic;font-weight:300;color:var(--grn);}.sh{margin-bottom:2rem;}
 /* PROCESS */
-.process{padding:4rem var(--r);background:var(--w);}
+.process{padding:2rem var(--r);background:var(--w);}
 .process-steps{display:flex;flex-direction:column;}
-.step{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem 0;border-bottom:1px solid var(--bdl);}
+.step{display:flex;align-items:flex-start;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--bdl);}
 .step:last-child{border-bottom:none;}
-.step-num{width:40px;height:40px;border:1.5px solid var(--sg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--grn);flex-shrink:0;}
-.step-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--tx);margin-bottom:.3rem;}
-.step-desc{font-size:.83rem;line-height:1.65;color:var(--txl);}
+.step-num{width:38px;height:38px;border:1.5px solid var(--sg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--grn);flex-shrink:0;}
+.step-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--tx);margin-bottom:.25rem;}
+.step-desc{font-size:.82rem;line-height:1.6;color:var(--txl);}
 /* SERVICES */
-.services{padding:4rem var(--r);background:var(--pb);}
-.services-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:2rem;}
-.svc-card{background:var(--w);border:1px solid var(--bdl);padding:1.8rem;border-radius:2px;border-left:3px solid var(--sg);transition:border-left-color .25s,box-shadow .25s;}
+.services{padding:2rem var(--r);background:var(--pb);}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.5rem;}
+.svc-card{min-height:auto;}
+.services-grid .svc-card:nth-child(5){grid-column:1;}
+.services-grid .svc-card:nth-child(6){grid-column:2;}
+.svc-card{background:var(--w);border:1px solid var(--bdl);padding:1.5rem;border-radius:2px;border-left:3px solid var(--sg);transition:border-left-color .25s,box-shadow .25s;}
 .svc-card:hover{border-left-color:var(--lf);box-shadow:0 4px 24px rgba(46,107,46,.1);}
-.svc-tag{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sg);margin-bottom:.7rem;display:block;}
-.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--tx);margin-bottom:.6rem;}
-.svc-desc{font-size:.84rem;line-height:1.7;color:var(--txl);}
+.svc-tag{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sg);margin-bottom:.6rem;display:block;}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:600;color:var(--tx);margin-bottom:.5rem;}
+.svc-desc{font-size:.83rem;line-height:1.65;color:var(--txl);}
 /* CLIENTS */
-.clients{padding:2.5rem var(--r);background:var(--w);border-top:1px solid var(--bdl);border-bottom:1px solid var(--bdl);}
-.clients-lbl{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--txf);text-align:center;margin-bottom:1.5rem;}
-.clients-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
-.client-name{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--tan);text-align:center;padding:.5rem;}
+.clients{padding:1.4rem var(--r);background:var(--w);border-top:1px solid var(--bdl);border-bottom:1px solid var(--bdl);}
+.clients-lbl{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--txf);text-align:center;margin-bottom:.9rem;}
+.clients-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;}
+.client-name{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:var(--tan);text-align:center;padding:.3rem .2rem;}
 /* PORTFOLIO */
-.portfolio{padding:4rem var(--r);}
-.portfolio-strip{display:flex;gap:.75rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:.5rem;margin-top:2rem;}
+.portfolio{padding:2rem var(--r) 2.5rem;}
+.portfolio-strip{display:flex;gap:.75rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:.5rem;margin-top:1.5rem;}
 .portfolio-strip::-webkit-scrollbar{display:none;}
-.port-cell{position:relative;flex:0 0 72vw;max-width:280px;height:220px;border-radius:6px;overflow:hidden;scroll-snap-align:start;}
+.port-cell{position:relative;flex:0 0 72vw;max-width:280px;height:210px;border-radius:6px;overflow:hidden;scroll-snap-align:start;}
 .port-cell img{width:100%;height:100%;object-fit:cover;display:block;}
-.port-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,15,.75),transparent 55%);display:flex;align-items:flex-end;padding:1.2rem;}
-.port-caption{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:#fff;}
+.port-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,15,.75),transparent 55%);display:flex;align-items:flex-end;padding:1rem;}
+.port-caption{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:#fff;}
 .port-caption span{display:block;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.2rem;font-style:normal;}
-.port-hint{font-size:.72rem;color:var(--txf);text-align:center;margin-top:.8rem;}
-.portfolio-cta{text-align:center;margin-top:2rem;}.portfolio-cta p{font-size:.84rem;color:var(--txl);margin-bottom:1.2rem;}
+.port-hint{font-size:.72rem;color:var(--txf);text-align:center;margin-top:.6rem;}
+.portfolio-cta{text-align:center;margin-top:1.8rem;}.portfolio-cta p{font-size:.84rem;color:var(--txl);margin-bottom:1rem;}
 .portfolio-grid{display:none;}
 /* TESTIMONIALS */
-.testimonials{padding:4rem var(--r);background:var(--cr);overflow:hidden;}
-.tests-header{margin-bottom:2rem;}
-.rating-row{display:flex;align-items:center;gap:.7rem;margin-top:.8rem;}
+.testimonials{padding:2.5rem var(--r);background:var(--cr);overflow:hidden;}
+.tests-header{margin-bottom:1.5rem;}
+.rating-row{display:flex;align-items:center;gap:.7rem;margin-top:.7rem;}
 .stars{display:flex;gap:3px;}
 .star{width:13px;height:13px;background:var(--lf);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);}
 .rating-txt{font-size:.74rem;color:var(--txl);}
 .t-track-wrap{overflow:hidden;touch-action:pan-y;}
 .t-track{display:flex;gap:1rem;transition:transform .45s cubic-bezier(.4,0,.2,1);}
-.review-card{flex:0 0 100%;background:var(--w);border:1px solid var(--bdl);border-radius:4px;padding:1.8rem;position:relative;}
-.review-card::before{content:'\201C';position:absolute;top:.8rem;right:1.4rem;font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:1;color:var(--pg);}
-.r-stars{display:flex;gap:3px;margin-bottom:1rem;}
-.r-quote{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:var(--txm);line-height:1.6;margin-bottom:1.4rem;}
+.review-card{flex:0 0 100%;background:var(--w);border:1px solid var(--bdl);border-radius:4px;padding:1.6rem;position:relative;}
+.review-card::before{content:'“';position:absolute;top:.8rem;right:1.4rem;font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:1;color:var(--pg);}
+.r-stars{display:flex;gap:3px;margin-bottom:.9rem;}
+.r-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;font-weight:300;color:var(--txm);line-height:1.6;margin-bottom:1.2rem;}
 .r-name{font-size:.8rem;font-weight:500;color:var(--tx);}.r-src{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txf);margin-top:.15rem;}
-.carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;}
+.carousel-controls{display:flex;align-items:center;justify-content:space-between;margin-top:1.2rem;}
 .dots{display:flex;gap:.5rem;}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--tan);border:none;cursor:pointer;transition:background .2s,transform .2s;}
 .dot.active{background:var(--lf);transform:scale(1.35);}
 .arrows{display:flex;gap:.6rem;}
-.arrow-btn{width:48px;height:48px;border:1px solid var(--bd);background:var(--w);border-radius:50%;color:var(--txl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:border-color .2s,color .2s;}
+.arrow-btn{width:44px;height:44px;border:1px solid var(--bd);background:var(--w);border-radius:50%;color:var(--txl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:border-color .2s,color .2s;}
 .arrow-btn:hover{border-color:var(--lf);color:var(--grn);}
 /* ABOUT */
 .about{background:var(--w);}
-.about-left{background:var(--pb);padding:4rem var(--r);position:relative;overflow:hidden;}
-.about-wm{position:absolute;right:-1rem;bottom:-2rem;font-family:'Cormorant Garamond',serif;font-size:14rem;line-height:1;color:rgba(46,107,46,.05);user-select:none;pointer-events:none;font-weight:600;}
-.about-body{font-size:.9rem;line-height:1.8;color:var(--txl);margin-bottom:1.1rem;}
-.about-right{background:var(--w);padding:3.5rem var(--r);}
-.facts{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2rem;}
-.fact-row{display:flex;align-items:flex-start;gap:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--bdl);}
+.about-left{background:var(--pb);padding:2.5rem var(--r);position:relative;overflow:hidden;}
+.about-wm{position:absolute;right:-1rem;bottom:-2rem;font-family:'Cormorant Garamond',serif;font-size:12rem;line-height:1;color:rgba(46,107,46,.05);user-select:none;pointer-events:none;font-weight:600;}
+.about-body{font-size:.88rem;line-height:1.78;color:var(--txl);margin-bottom:1rem;}
+.about-right{background:var(--w);padding:2.5rem var(--r);}
+.facts{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:1.8rem;}
+.fact-row{display:flex;align-items:flex-start;gap:1.5rem;padding-bottom:1.2rem;border-bottom:1px solid var(--bdl);}
 .fact-row:last-child{border-bottom:none;padding-bottom:0;}
-.fact-n{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--grn);line-height:1;flex-shrink:0;min-width:70px;}
-.fact-t{font-size:.86rem;line-height:1.65;color:var(--txl);padding-top:.3rem;}.fact-t strong{color:var(--tx);font-weight:400;}
+.fact-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--grn);line-height:1;flex-shrink:0;min-width:65px;}
+.fact-t{font-size:.85rem;line-height:1.65;color:var(--txl);padding-top:.3rem;}.fact-t strong{color:var(--tx);font-weight:400;}
 /* BOOKING */
-.booking{padding:4rem var(--r);background:var(--ww);}
-.booking-grid{display:flex;flex-direction:column;gap:2.5rem;}
-.bk-copy p{font-size:.9rem;line-height:1.78;color:var(--txl);margin-top:1.2rem;}
-.checklist{margin-top:1.5rem;display:flex;flex-direction:column;gap:.8rem;border-top:1px solid var(--bdl);padding-top:1.5rem;}
-.chk{display:flex;align-items:flex-start;gap:.8rem;font-size:.85rem;color:var(--txl);line-height:1.5;}
+.booking{padding:2.5rem var(--r);background:var(--ww);}
+.booking-grid{display:flex;flex-direction:column;gap:2rem;}
+.bk-copy p{font-size:.9rem;line-height:1.78;color:var(--txl);margin-top:1rem;}
+.checklist{margin-top:1.2rem;display:flex;flex-direction:column;gap:.75rem;border-top:1px solid var(--bdl);padding-top:1.2rem;}
+.chk{display:flex;align-items:flex-start;gap:.8rem;font-size:.84rem;color:var(--txl);line-height:1.5;}
 .chk-mark{width:20px;height:20px;border:1.5px solid var(--sg);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--grn);font-size:.62rem;}
-.slots-avail{margin-top:1.5rem;background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:1.2rem 1.3rem;}
+.slots-avail{margin-top:1.2rem;background:var(--w);border:1px solid var(--bd);border-radius:4px;padding:1.1rem 1.2rem;}
 .sa-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.6rem;}
 .sa-lbl{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txf);}
 .sa-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--grn);}
 .sa-of{font-size:.7rem;color:var(--txf);margin-left:.25rem;}
 .sa-track{height:4px;background:var(--pg);border-radius:3px;overflow:hidden;}
 .sa-fill{height:100%;width:0;background:linear-gradient(90deg,var(--grn),var(--lf));border-radius:3px;transition:width 1.5s ease;}
-.sa-note{font-size:.73rem;color:var(--txl);margin-top:.7rem;line-height:1.5;}.sa-note strong{color:#b45309;font-weight:400;}
+.sa-note{font-size:.73rem;color:var(--txl);margin-top:.6rem;line-height:1.5;}.sa-note strong{color:#b45309;font-weight:400;}
 /* CALENDAR */
 .cal-card{background:var(--w);border:1px solid var(--bd);border-radius:6px;overflow:hidden;box-shadow:0 4px 32px rgba(46,107,46,.08);}
-.cal-hdr{background:var(--grn);padding:1.4rem 1.6rem;}
-.cal-hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.25rem;}
-.cal-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:#fff;}
-.cal-badge{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:.22rem .6rem;border-radius:10px;}
-.cal-sub{font-size:.75rem;color:rgba(255,255,255,.7);}
-.cal-body{padding:1.5rem 1.4rem;}
-.type-lbl{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txf);margin-bottom:.9rem;display:block;}
-.type-btns{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:.9rem;}
-.type-btn{border:1.5px solid var(--bdl);background:var(--ww);border-radius:4px;padding:1.1rem .7rem;cursor:pointer;text-align:center;font-family:'Jost',sans-serif;transition:border-color .2s,background .2s;min-height:80px;}
+.cal-hdr{background:var(--grn);padding:1.3rem 1.5rem;}
+.cal-hdr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.2rem;}
+.cal-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#fff;}
+.cal-badge{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.2);color:#fff;padding:.2rem .55rem;border-radius:10px;}
+.cal-sub{font-size:.74rem;color:rgba(255,255,255,.7);}
+.cal-body{padding:1.4rem 1.3rem;}
+.type-lbl{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txf);margin-bottom:.8rem;display:block;}
+.type-btns{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:.85rem;}
+.type-btn{border:1.5px solid var(--bdl);background:var(--ww);border-radius:4px;padding:1rem .65rem;cursor:pointer;text-align:center;font-family:'Jost',sans-serif;transition:border-color .2s,background .2s;min-height:76px;}
 .type-btn:hover{border-color:var(--sg);background:var(--pb);}
 .type-btn.sel{border-color:var(--lf);background:var(--pb);box-shadow:0 0 0 1px var(--lf);}
-.tb-icon{width:28px;height:28px;margin:0 auto .55rem;display:block;}
-.tb-name{font-size:.82rem;font-weight:500;color:var(--tx);display:block;}
-.tb-desc{font-size:.68rem;color:var(--txl);margin-top:.1rem;display:block;line-height:1.3;}
-.type-next{width:100%;background:var(--lf);color:#fff;border:none;padding:1rem;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;opacity:.3;pointer-events:none;transition:background .2s,opacity .2s;}
+.tb-icon{width:26px;height:26px;margin:0 auto .5rem;display:block;}
+.tb-name{font-size:.8rem;font-weight:500;color:var(--tx);display:block;}
+.tb-desc{font-size:.67rem;color:var(--txl);margin-top:.1rem;display:block;line-height:1.3;}
+.type-next{width:100%;background:var(--lf);color:#fff;border:none;padding:.95rem;font-family:'Jost',sans-serif;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;opacity:.3;pointer-events:none;transition:background .2s,opacity .2s;}
 .type-next.on{opacity:1;pointer-events:auto;}.type-next.on:hover{background:var(--grn);}
 .step2{display:none;}.step2.vis{display:block;}
-.back-btn{background:none;border:none;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txf);cursor:pointer;padding:.3rem 0 1rem;display:flex;align-items:center;gap:.4rem;font-family:'Jost',sans-serif;min-height:44px;}
-.type-pill{display:inline-flex;background:var(--pb);border:1px solid var(--bdl);border-radius:20px;padding:.25rem .8rem;font-size:.7rem;color:var(--grn);margin-bottom:1rem;}
-.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
-.cal-month-lbl{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--tx);}
-.cal-nb{background:transparent;border:1px solid var(--bdl);color:var(--txl);cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:border-color .2s;}
+.back-btn{background:none;border:none;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--txf);cursor:pointer;padding:.3rem 0 .9rem;display:flex;align-items:center;gap:.4rem;font-family:'Jost',sans-serif;min-height:44px;}
+.type-pill{display:inline-flex;background:var(--pb);border:1px solid var(--bdl);border-radius:20px;padding:.25rem .8rem;font-size:.7rem;color:var(--grn);margin-bottom:.9rem;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.cal-month-lbl{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--tx);}
+.cal-nb{background:transparent;border:1px solid var(--bdl);color:var(--txl);cursor:pointer;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:border-color .2s;}
 .cal-nb:hover{border-color:var(--lf);color:var(--grn);}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:1.2rem;}
-.cal-dow{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txf);text-align:center;padding:.4rem 0;}
-.cal-day{aspect-ratio:1;min-height:38px;display:flex;align-items:center;justify-content:center;font-size:.8rem;border-radius:50%;cursor:pointer;color:var(--txf);border:none;background:transparent;font-family:'Jost',sans-serif;transition:background .15s,color .15s;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:1rem;}
+.cal-dow{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--txf);text-align:center;padding:.35rem 0;}
+.cal-day{aspect-ratio:1;min-height:36px;display:flex;align-items:center;justify-content:center;font-size:.78rem;border-radius:50%;cursor:pointer;color:var(--txf);border:none;background:transparent;font-family:'Jost',sans-serif;transition:background .15s,color .15s;}
 .cal-day.avail{color:var(--tx);}.cal-day.avail:hover{background:var(--pb);color:var(--grn);}
 .cal-day.picked{background:var(--lf);color:#fff;}
 .cal-day.past{color:var(--pg);cursor:default;pointer-events:none;}
 .cal-day.today{border:1.5px solid var(--sg);color:var(--grn);}
-.time-slots{display:none;margin-bottom:1.2rem;}.time-slots.vis{display:block;}
-.ts-lbl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txf);margin-bottom:.7rem;}
+.time-slots{display:none;margin-bottom:1rem;}.time-slots.vis{display:block;}
+.ts-lbl{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txf);margin-bottom:.6rem;}
 .slots-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;}
-.slot{background:var(--ww);border:1px solid var(--bdl);border-radius:3px;padding:.72rem .5rem;text-align:center;font-size:.8rem;color:var(--txm);cursor:pointer;font-family:'Jost',sans-serif;transition:border-color .15s,color .15s,background .15s;min-height:44px;display:flex;align-items:center;justify-content:center;}
+.slot{background:var(--ww);border:1px solid var(--bdl);border-radius:3px;padding:.7rem .5rem;text-align:center;font-size:.79rem;color:var(--txm);cursor:pointer;font-family:'Jost',sans-serif;transition:border-color .15s,color .15s,background .15s;min-height:44px;display:flex;align-items:center;justify-content:center;}
 .slot:hover{border-color:var(--lf);color:var(--grn);background:var(--pb);}
 .slot.sel{background:var(--pb);border-color:var(--lf);color:var(--grn);font-weight:500;}
 .cal-form{display:none;}.cal-form.vis{display:block;}
-.sel-info{background:var(--pb);border:1px solid var(--bdl);padding:.8rem 1rem;border-radius:3px;margin-bottom:1.2rem;font-size:.82rem;color:var(--grn);}
-.f-grp{margin-bottom:.9rem;}
+.sel-info{background:var(--pb);border:1px solid var(--bdl);padding:.75rem .9rem;border-radius:3px;margin-bottom:1rem;font-size:.81rem;color:var(--grn);}
+.f-grp{margin-bottom:.85rem;}
 .f-grp label{display:block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--txf);margin-bottom:.3rem;}
-.f-grp input,.f-grp select{width:100%;background:var(--ww);border:1px solid var(--bdl);border-radius:2px;padding:.8rem .9rem;min-height:44px;color:var(--tx);font-family:'Jost',sans-serif;font-size:16px;font-weight:300;outline:none;appearance:none;transition:border-color .2s;}
+.f-grp input,.f-grp select{width:100%;background:var(--ww);border:1px solid var(--bdl);border-radius:2px;padding:.75rem .85rem;min-height:44px;color:var(--tx);font-family:'Jost',sans-serif;font-size:16px;font-weight:300;outline:none;appearance:none;transition:border-color .2s;}
 .f-grp input::placeholder{color:var(--tan);}
 .f-grp input:focus,.f-grp select:focus{border-color:var(--lf);background:var(--pb);}
-.f-row2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
-.form-btn{width:100%;margin-top:1rem;background:var(--lf);color:#fff;border:none;padding:1.1rem;font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background .2s;min-height:52px;}
+.f-row2{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;}
+.form-btn{width:100%;margin-top:.9rem;background:var(--lf);color:#fff;border:none;padding:1.05rem;font-family:'Jost',sans-serif;font-size:.77rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background .2s;min-height:50px;}
 .form-btn:hover{background:var(--grn);}
-.just-call{display:block;text-align:center;margin-top:.9rem;font-size:.76rem;color:var(--txl);}
+.just-call{display:block;text-align:center;margin-top:.85rem;font-size:.75rem;color:var(--txl);}
 .just-call a{color:var(--grn);text-decoration:none;}
-.or-div{text-align:center;padding:1rem 0 .7rem;font-size:.68rem;color:var(--txf);letter-spacing:.1em;text-transform:uppercase;}
+.or-div{text-align:center;padding:.9rem 0 .6rem;font-size:.68rem;color:var(--txf);letter-spacing:.1em;text-transform:uppercase;}
 .alt-contact{display:flex;justify-content:center;gap:1.5rem;padding-bottom:.4rem;flex-wrap:wrap;}
 .alt-contact a{font-size:.78rem;color:var(--grn);text-decoration:none;}
 .bk-succ{display:none;text-align:center;padding:3rem 1.5rem;}.bk-succ.on{display:block;}
@@ -215,12 +216,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,248,244,.97);border-bo
 .ei-card{background:var(--w);width:100%;border-radius:16px 16px 0 0;box-shadow:0 -12px 60px rgba(0,0,0,.18);transform:translateY(100%);transition:transform .4s cubic-bezier(.22,.61,.36,1);position:relative;max-height:90vh;overflow-y:auto;}
 .ei-overlay.vis .ei-card{transform:translateY(0);}
 .ei-handle{width:36px;height:4px;background:var(--tan);border-radius:2px;margin:1rem auto .5rem;}
-.ei-img{width:100%;height:150px;object-fit:cover;display:block;}
-.ei-body{padding:1.5rem 1.5rem 2rem;}
+.ei-img{width:100%;height:140px;object-fit:cover;display:block;}
+.ei-body{padding:1.4rem 1.5rem 2rem;}
 .ei-lbl{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lf);margin-bottom:.6rem;display:block;}
-.ei-head{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--tx);line-height:1.1;margin-bottom:.6rem;}
+.ei-head{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--tx);line-height:1.1;margin-bottom:.55rem;}
 .ei-head em{font-style:italic;font-weight:300;color:var(--grn);}
-.ei-sub{font-size:.84rem;color:var(--txl);line-height:1.6;margin-bottom:1.3rem;}
+.ei-sub{font-size:.83rem;color:var(--txl);line-height:1.6;margin-bottom:1.2rem;}
 .ei-form{display:flex;flex-direction:column;gap:.6rem;}
 .ei-input{background:var(--ww);border:1px solid var(--bdl);border-radius:2px;padding:.85rem 1rem;color:var(--tx);font-family:'Jost',sans-serif;font-size:16px;outline:none;transition:border-color .2s;min-height:48px;}
 .ei-input:focus{border-color:var(--lf);}
@@ -238,26 +239,31 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,248,244,.97);border-bo
 .mob-cta a.mc-book:hover{background:var(--grn);}
 .mob-cta a.mc-call{background:rgba(255,255,255,.08);color:rgba(255,255,255,.75);text-decoration:none;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;padding:.9rem 1rem;border-radius:2px;border:1px solid rgba(255,255,255,.12);white-space:nowrap;}
 /* FOOTER */
-.footer{background:var(--tx);padding:3rem var(--r) 2rem;}
-.footer-logo img{height:34px;filter:brightness(0) invert(1) opacity(.8);margin-bottom:1rem;display:block;}
-.footer-tagline{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.32);max-width:240px;margin-bottom:1rem;}
-.footer-contact{font-size:.8rem;color:rgba(255,255,255,.38);line-height:1.9;}
+.footer{background:var(--tx);padding:2.5rem var(--r) 2rem;}
+.footer-logo img{height:32px;filter:brightness(0) invert(1) opacity(.8);margin-bottom:.9rem;display:block;}
+.footer-tagline{font-size:.81rem;line-height:1.7;color:rgba(255,255,255,.32);max-width:240px;margin-bottom:.9rem;}
+.footer-contact{font-size:.79rem;color:rgba(255,255,255,.38);line-height:1.9;}
 .footer-contact a{color:var(--sg);text-decoration:none;}
-.footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
-.fc-title{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:1rem;}
-.fc-links{list-style:none;}.fc-links li{margin-bottom:.55rem;}
-.fc-links a{font-size:.82rem;color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s;}
+.footer-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:1.8rem;}
+.fc-title{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:.9rem;}
+.fc-links{list-style:none;}.fc-links li{margin-bottom:.5rem;}
+.fc-links a{font-size:.81rem;color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s;}
 .fc-links a:hover{color:var(--sg);}
-.footer-bottom{background:rgba(0,0,0,.2);padding:1.2rem var(--r);display:flex;flex-direction:column;gap:.4rem;}
+.footer-bottom{background:rgba(0,0,0,.2);padding:1.1rem var(--r);display:flex;flex-direction:column;gap:.4rem;}
 .footer-bottom p{font-size:.7rem;color:rgba(255,255,255,.2);}
-.footer-est{font-family:'Cormorant Garamond',serif;font-size:.78rem;color:rgba(255,255,255,.16);letter-spacing:.08em;}
+.footer-est{font-family:'Cormorant Garamond',serif;font-size:.77rem;color:rgba(255,255,255,.16);letter-spacing:.08em;}
+@media(max-width:400px){.services-grid{grid-template-columns:1fr;}.services-grid .svc-card:nth-child(5),.services-grid .svc-card:nth-child(6){grid-column:1;}}
+/* TABLET */
 @media(min-width:640px){
 :root{--r:2.5rem;}
+.hero{padding:3rem var(--r) 3rem;}
+.hero-content{padding-right:min(260px,40vw);}
+.hero-plant{width:min(280px,42vw);}
 .hero-actions{flex-direction:row;align-items:center;}
 .btn-green,.btn-ghost{display:inline-block;}
 .services-grid{grid-template-columns:1fr 1fr;}
 .clients-row{grid-template-columns:repeat(3,1fr);}
-.port-cell{flex:0 0 48%;max-width:320px;height:260px;}
+.port-cell{flex:0 0 48%;max-width:320px;height:250px;}
 .review-card{flex:0 0 calc(50% - .5rem);}
 .slots-grid{grid-template-columns:1fr 1fr 1fr;}
 .ei-overlay{align-items:center;}
@@ -266,9 +272,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(250,248,244,.97);border-bo
 .ei-img{height:180px;}
 .ei-form{flex-direction:row;}
 }
+/* DESKTOP */
 @media(min-width:1024px){
 :root{--r:5rem;}
 body{padding-bottom:0;}
+.hero-sub{max-width:460px;}
+.hero-h{max-width:none;}
 .mob-cta{display:none;}
 .nav-logo img{height:36px;}
 .nav-phone{display:none;}
@@ -278,28 +287,30 @@ body{padding-bottom:0;}
 .nav-cta-d{display:block;background:var(--lf);color:#fff;text-decoration:none;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:.65rem 1.6rem;border-radius:1px;transition:background .2s;}
 .nav-cta-d:hover{background:var(--grn);}
 .hero{padding:5rem var(--r) 4rem;min-height:calc(100vh - 70px);}
-.hero-plant{right:calc(var(--r) - 1rem);}
-.plant-svg{width:min(380px,28vw);}
+.hero-content{padding-right:min(460px,35vw);}
+.hero-plant{right:calc(var(--r) - 2rem);width:min(400px,30vw);}
+.plant-svg{opacity:.24;}
 .stats-bar{grid-template-columns:repeat(4,1fr);}
 .stat-item{border-right:1px solid var(--bdl);border-bottom:none;}
 .stat-item:last-child{border-right:none;}
 .stat-item:nth-child(2n){border-right:1px solid var(--bdl);}
+.stat-item:nth-last-child(-n+2){border-bottom:none;}
 .process{padding:7rem var(--r);}
 .process-steps{flex-direction:row;position:relative;}
-.process-steps::before{content:'';position:absolute;top:20px;left:8%;right:8%;height:1px;background:var(--bdl);}
+.process-steps::before{content:'';position:absolute;top:19px;left:8%;right:8%;height:1px;background:var(--bdl);}
 .step{flex:1;flex-direction:column;align-items:center;text-align:center;padding:0 1.5rem;border-bottom:none;}
-.step-num{margin-bottom:1.6rem;width:44px;height:44px;transition:background .3s,border-color .3s,color .3s;}
+.step-num{margin-bottom:1.5rem;width:42px;height:42px;transition:background .3s,border-color .3s,color .3s;}
 .step:hover .step-num{background:var(--grn);border-color:var(--grn);color:#fff;}
 .services{padding:7rem var(--r);}
-.services-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
-.svc-card{padding:2.6rem;border-left:none;border-bottom:2px solid transparent;}
+.services-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.svc-card{padding:2.4rem;border-left:none;border-bottom:2px solid transparent;}
 .svc-card:hover{border-bottom-color:var(--lf);}
-.clients{padding:3.5rem var(--r);}
+.clients{padding:3rem var(--r);}
 .clients-row{display:flex;justify-content:center;gap:4rem;}
 .client-name{font-size:1rem;padding:0;}
 .portfolio{padding:7rem var(--r);}
 .portfolio-strip{display:none;}.port-hint{display:none;}
-.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:270px 270px;gap:1rem;margin-top:3.5rem;}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:270px 270px;gap:1rem;margin-top:3rem;}
 .port-cell-d{position:relative;overflow:hidden;border-radius:2px;}
 .port-cell-d.tall{grid-row:span 2;}
 .port-cell-d img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease;display:block;}
@@ -309,7 +320,7 @@ body{padding-bottom:0;}
 .port-caption-d{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:#fff;}
 .port-caption-d span{display:block;font-family:'Jost',sans-serif;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.28rem;font-style:normal;}
 .testimonials{padding:7rem var(--r);}
-.tests-header{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3.5rem;}
+.tests-header{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem;}
 .rating-row{flex-direction:column;align-items:flex-end;gap:.3rem;}
 .review-card{flex:0 0 calc(33.333% - .7rem);}
 .about{display:grid;grid-template-columns:1fr 1fr;}
@@ -326,433 +337,135 @@ body{padding-bottom:0;}
 </style>
 </head>
 <body>
-
-<div class="ei-overlay" id="eiOverlay">
-  <div class="ei-card">
-    <div class="ei-handle"></div>
-    <button class="ei-close" onclick="closeEI()" aria-label="Close">&#215;</button>
-    <img src="https://static.wixstatic.com/media/da58a4_ec10c3ade0be4b41af093453d471c1c8~mv2.jpg/v1/fill/w_960,h_400,al_c,q_85,enc_avif,quality_auto/da58a4_ec10c3ade0be4b41af093453d471c1c8~mv2.jpg" alt="Calvert's plant design" class="ei-img">
-    <div id="eiBody">
-      <div class="ei-body">
-        <span class="ei-lbl">Before You Go</span>
-        <h2 class="ei-head">Get our <em>Free Spring Plant Guide</em></h2>
-        <p class="ei-sub">20 plants that thrive in Oklahoma's climate, curated by our horticulturists. Plus early access to our spring calendar.</p>
-        <div class="ei-form">
-          <input type="email" class="ei-input" id="eiEmail" placeholder="your@email.com">
-          <button class="ei-submit" onclick="submitEI()">Send My Guide</button>
-        </div>
-        <span class="ei-skip" onclick="closeEI()">No thanks, skip the free guide</span>
-      </div>
-    </div>
-    <div class="ei-succ" id="eiSucc">
-      <div class="ei-succ-mark">&#10003;</div>
-      <h3>On its way.</h3>
-      <p>Check your inbox.</p>
-    </div>
-  </div>
-</div>
-
-<div class="mob-cta">
-  <a href="#booking" class="mc-book">Book Free Consultation</a>
-  <a href="tel:4058486642" class="mc-call">Call Us</a>
-</div>
-
-<div class="ub">
-  <div class="ub-text">Spring slots filling fast &mdash; <a href="#booking">4 free consultations remaining this month</a></div>
-  <div class="ub-cd">Offer ends:&nbsp;<span class="cdu" id="cdD">--</span>d&nbsp;<span class="cdu" id="cdH">--</span>h&nbsp;<span class="cdu" id="cdM">--</span>m</div>
-</div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="#"><img src="https://static.wixstatic.com/media/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png/v1/fill/w_425,h_141,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png" alt="Calvert's Plant Interiors" style="height:30px;display:block;"></a>
-    <a href="tel:4058486642" class="nav-phone">(405) 848-6642</a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#portfolio">Our Work</a>
-      <a href="#testimonials">Reviews</a>
-      <a href="tel:4058486642">(405) 848-6642</a>
-    </div>
-    <a href="#booking" class="nav-cta-d">Book a Consultation</a>
-  </div>
-</nav>
-
-<section class="hero" id="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-plant" id="heroPlant">
-<svg class="plant-svg" viewBox="0 0 280 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Main stem -->
+<div class="ei-overlay" id="eiOverlay"><div class="ei-card"><div class="ei-handle"></div><button class="ei-close" onclick="closeEI()" aria-label="Close">&#215;</button><img src="https://static.wixstatic.com/media/da58a4_ec10c3ade0be4b41af093453d471c1c8~mv2.jpg/v1/fill/w_960,h_400,al_c,q_85,enc_avif,quality_auto/da58a4_ec10c3ade0be4b41af093453d471c1c8~mv2.jpg" alt="Calvert's plant design" class="ei-img"><div id="eiBody"><div class="ei-body"><span class="ei-lbl">Before You Go</span><h2 class="ei-head">Get our <em>Free Spring Plant Guide</em></h2><p class="ei-sub">20 plants that thrive in Oklahoma's climate, curated by our horticulturists.</p><div class="ei-form"><input type="email" class="ei-input" id="eiEmail" placeholder="your@email.com"><button class="ei-submit" onclick="submitEI()">Send My Guide</button></div><span class="ei-skip" onclick="closeEI()">No thanks</span></div></div><div class="ei-succ" id="eiSucc"><div class="ei-succ-mark">&#10003;</div><h3>On its way.</h3><p>Check your inbox.</p></div></div></div>
+<div class="mob-cta"><a href="#booking" class="mc-book">Book Free Consultation</a><a href="tel:4058486642" class="mc-call">Call Us</a></div>
+<div class="ub"><div class="ub-text">Spring slots filling fast &mdash; <a href="#booking">4 free consultations remaining this month</a></div><div class="ub-cd">Offer ends:&nbsp;<span class="cdu" id="cdD">--</span>d&nbsp;<span class="cdu" id="cdH">--</span>h&nbsp;<span class="cdu" id="cdM">--</span>m</div></div>
+<nav><div class="nav-inner"><a href="#"><img src="https://static.wixstatic.com/media/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png/v1/fill/w_425,h_141,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png" alt="Calvert's Plant Interiors" style="height:30px;display:block;"></a><a href="tel:4058486642" class="nav-phone">(405) 848-6642</a><div class="nav-links"><a href="#services">Services</a><a href="#portfolio">Our Work</a><a href="#testimonials">Reviews</a><a href="tel:4058486642">(405) 848-6642</a></div><a href="#booking" class="nav-cta-d">Book a Consultation</a></div></nav>
+<section class="hero" id="hero"><div class="hero-bg" id="heroBg"></div><div class="hero-plant" id="heroPlant"><svg class="plant-svg" viewBox="0 0 280 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <path class="plant-stem" d="M140 470 C140 470 138 380 140 200 C141 120 140 60 140 30" stroke="#2e6b2e" stroke-width="5" stroke-linecap="round"/>
-  <!-- Curve lower stem -->
   <path class="plant-stem" d="M140 380 C130 340 145 300 140 260" stroke="#3d6b3d" stroke-width="3" stroke-linecap="round" opacity=".4"/>
-  <!-- Leaf 1 - bottom left -->
   <path class="plant-leaf pl1" d="M137 420 C137 420 60 400 28 330 C28 330 95 308 137 420Z" fill="#3d8c3d"/>
   <path class="plant-leaf pl1" d="M137 420 C110 390 75 355 50 330" stroke="#2a6a2a" stroke-width="1.2" opacity=".4"/>
-  <!-- Leaf 2 - bottom right -->
   <path class="plant-leaf pl2" d="M143 400 C143 400 222 375 258 300 C258 300 188 278 143 400Z" fill="#2e6b2e"/>
   <path class="plant-leaf pl2" d="M143 400 C172 368 208 335 232 305" stroke="#1f4f1f" stroke-width="1.2" opacity=".4"/>
-  <!-- Leaf 3 - mid left -->
   <path class="plant-leaf pl3" d="M136 320 C136 320 52 295 18 218 C18 218 90 196 136 320Z" fill="#4a9e4a"/>
   <path class="plant-leaf pl3" d="M136 320 C106 288 68 255 40 222" stroke="#2e6b2e" stroke-width="1.2" opacity=".4"/>
-  <!-- Leaf 4 - mid right -->
   <path class="plant-leaf pl4" d="M144 295 C144 295 230 265 268 185 C268 185 194 163 144 295Z" fill="#3d8c3d"/>
   <path class="plant-leaf pl4" d="M144 295 C175 262 214 228 242 190" stroke="#1f4f1f" stroke-width="1.2" opacity=".4"/>
-  <!-- Leaf 5 - upper left -->
   <path class="plant-leaf pl5" d="M137 210 C137 210 68 185 42 118 C42 118 108 98 137 210Z" fill="#5aae5a"/>
   <path class="plant-leaf pl5" d="M137 210 C112 178 80 150 54 122" stroke="#2e6b2e" stroke-width="1.2" opacity=".4"/>
-  <!-- Leaf 6 - upper right -->
   <path class="plant-leaf pl6" d="M143 185 C143 185 215 155 245 86 C245 86 178 66 143 185Z" fill="#4a9e4a"/>
   <path class="plant-leaf pl6" d="M143 185 C168 154 200 122 224 90" stroke="#1f4f1f" stroke-width="1.2" opacity=".4"/>
-  <!-- Top bud / growing tip -->
   <ellipse class="plant-bud" cx="140" cy="26" rx="9" ry="14" fill="#72c472"/>
   <ellipse class="plant-bud" cx="140" cy="20" rx="5.5" ry="8" fill="#9fe09f" opacity=".8"/>
-  <!-- Small side shoots -->
   <path class="plant-leaf pl5" d="M139 250 C125 235 105 228 90 232" stroke="#3d8c3d" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".6"/>
   <path class="plant-leaf pl6" d="M141 230 C155 215 175 208 190 212" stroke="#2e6b2e" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".6"/>
-</svg>
-</div>
-  <div class="hero-content">
-    <p class="eyebrow">Oklahoma City's Premier Interiorscape Company</p>
-    <h1 class="hero-h">Bring <em>Nature</em><br>Indoors.</h1>
-    <p class="hero-sub">Calvert's has designed, installed, and maintained living plants in Oklahoma's finest spaces for nearly 50 years. We handle everything &mdash; so you simply enjoy.</p>
-    <div class="hero-actions">
-      <a href="#booking" class="btn-green">Book a Free Consultation</a>
-      <a href="#portfolio" class="btn-ghost">See Our Work</a>
-    </div>
-    <div class="slot-badge">
-      <span class="slot-dot"></span>
-      <span class="slot-txt"><strong>4 spring slots remaining</strong>end of this month</span>
-    </div>
-  </div>
-</section>
-
-<div class="stats-bar">
-  <div class="stat-item"><span class="stat-n">1976</span><span class="stat-l">Year Established</span></div>
-  <div class="stat-item"><span class="stat-n">45+</span><span class="stat-l">Years Serving Oklahoma</span></div>
-  <div class="stat-item"><span class="stat-n">10K+</span><span class="stat-l">Sq Ft Greenhouse</span></div>
-  <div class="stat-item"><span class="stat-n">#1</span><span class="stat-l">Interiorscape in OKC</span></div>
-</div>
-
-<section class="process">
-  <div class="sh"><span class="section-label reveal">How It Works</span><h2 class="section-title reveal">From <em>Consultation</em><br>to Thriving Space</h2></div>
-  <div class="process-steps">
-    <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h3 class="step-name">Consult</h3><p class="step-desc">A complimentary on-site session where we learn your space, goals, and aesthetic.</p></div></div>
-    <div class="step reveal d1"><div class="step-num">02</div><div class="step-body"><h3 class="step-name">Design</h3><p class="step-desc">A custom plant plan &mdash; species, pottery, placement, and lighting.</p></div></div>
-    <div class="step reveal d2"><div class="step-num">03</div><div class="step-body"><h3 class="step-name">Install</h3><p class="step-desc">Our crew handles delivery and full setup. Walk in and appreciate it.</p></div></div>
-    <div class="step reveal d1"><div class="step-num">04</div><div class="step-body"><h3 class="step-name">Maintain</h3><p class="step-desc">Our horticulturists visit on your schedule &mdash; watering, pruning, replacing.</p></div></div>
-    <div class="step reveal d2"><div class="step-num">05</div><div class="step-body"><h3 class="step-name">Enjoy</h3><p class="step-desc">A living space that looks extraordinary and stays that way &mdash; guaranteed.</p></div></div>
-  </div>
-</section>
-
-<section class="services" id="services">
-  <div class="sh"><span class="section-label reveal">What We Offer</span><h2 class="section-title reveal">Expert Design for<br><em>Every Environment</em></h2></div>
-  <div class="services-grid">
-    <div class="svc-card reveal"><span class="svc-tag">Commercial &amp; Residential</span><h3 class="svc-name">Interior Plantscaping</h3><p class="svc-desc">Bespoke living plant installations for offices, lobbies, hotels, restaurants, and homes &mdash; designed, delivered, and maintained.</p></div>
-    <div class="svc-card reveal d1"><span class="svc-tag">Outdoor Spaces</span><h3 class="svc-name">Exterior &amp; Patioscape</h3><p class="svc-desc">Seasonal planting, statement planters, patios, and entryways that create a lasting first impression.</p></div>
-    <div class="svc-card reveal d2"><span class="svc-tag">Architectural</span><h3 class="svc-name">Living Green Walls</h3><p class="svc-desc">Floor-to-ceiling plant installations serving as living art &mdash; improving air quality and transforming architecture.</p></div>
-    <div class="svc-card reveal"><span class="svc-tag">Seasonal</span><h3 class="svc-name">Holiday Decorating</h3><p class="svc-desc">Full-service holiday installation. We install, manage, and remove &mdash; no effort required.</p></div>
-    <div class="svc-card reveal d1"><span class="svc-tag">Special Occasions</span><h3 class="svc-name">Event Rentals</h3><p class="svc-desc">Premium tropical plant rentals for galas, corporate events, weddings, and productions throughout Oklahoma.</p></div>
-    <div class="svc-card reveal d2"><span class="svc-tag">Oklahoma City</span><h3 class="svc-name">Retail Greenhouse</h3><p class="svc-desc">Over 10,000 sq ft of tropical plants and pottery at 5308 N Classen Blvd &mdash; expert staff ready to help.</p></div>
-  </div>
-</section>
-
-<section class="clients">
-  <p class="clients-lbl">Trusted by Oklahoma's most recognized organizations</p>
-  <div class="clients-row">
-    <span class="client-name">OKC Thunder</span><span class="client-name">OKC Philharmonic</span>
-    <span class="client-name">Myriad Gardens</span><span class="client-name">OKC Ballet</span>
-    <span class="client-name">OU Children's Hospital</span>
-  </div>
-</section>
-
-<section class="portfolio" id="portfolio">
-  <div class="sh" style="margin-bottom:0"><span class="section-label reveal">Our Work</span><h2 class="section-title reveal">Spaces We've<br><em>Transformed</em></h2></div>
-  <div class="portfolio-strip reveal">
-<div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg" alt="Interior Installation" loading="lazy"><div class="port-overlay"><div class="port-caption">Interior Installation<span>OKC Commercial</span></div></div></div>
-<div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg" alt="Bespoke Design" loading="lazy"><div class="port-overlay"><div class="port-caption">Bespoke Design<span>Oklahoma City</span></div></div></div>
-<div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg" alt="Tropical Selection" loading="lazy"><div class="port-overlay"><div class="port-caption">Tropical Selection<span>5308 N Classen</span></div></div></div>
-<div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg" alt="Office Planting" loading="lazy"><div class="port-overlay"><div class="port-caption">Office Planting<span>Northwest OKC</span></div></div></div>
-<div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg" alt="Commercial Space" loading="lazy"><div class="port-overlay"><div class="port-caption">Commercial Space<span>Oklahoma City</span></div></div></div>
-  </div>
-  <p class="port-hint">Swipe to explore</p>
-  <div class="portfolio-grid">
-<div class="port-cell-d tall"><img src="https://static.wixstatic.com/media/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg" alt="Interior Installation" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Interior Installation<span>OKC Commercial</span></div></div></div>
-<div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg" alt="Bespoke Design" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Bespoke Design<span>Oklahoma City</span></div></div></div>
-<div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg" alt="Tropical Selection" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Tropical Selection<span>5308 N Classen</span></div></div></div>
-<div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg" alt="Office Planting" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Office Planting<span>Northwest OKC</span></div></div></div>
-<div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg" alt="Commercial Space" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Commercial Space<span>Oklahoma City</span></div></div></div>
-  </div>
-  <div class="portfolio-cta reveal"><p>Real work by our team &mdash; every installation designed and maintained by Calvert's.</p><a href="#booking" class="btn-green" style="max-width:320px;margin:0 auto;">Start with a Free Consultation</a></div>
-</section>
-
-<section class="testimonials" id="testimonials">
-  <div class="tests-header">
-    <div class="sh" style="margin-bottom:0"><span class="section-label reveal">What Clients Say</span><h2 class="section-title reveal">Trusted by<br><em>Oklahoma</em></h2></div>
-    <div class="rating-row reveal"><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><span class="rating-txt">4.8 &middot; Google, Yelp &amp; WeddingWire</span></div>
-  </div>
-  <div class="t-track-wrap reveal" id="tWrap"><div class="t-track" id="tTrack">
-    <div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Doris and Todd were always quick to respond and didn't mind when I changed my mind. I never had to lift a finger. Everything turned out beautifully.</p><p class="r-name">Verified Client</p><p class="r-src">WeddingWire</p></div>
-    <div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Never had a bad plant design. The staff is knowledgeable, friendly, and genuinely passionate about what they do.</p><p class="r-name">Verified Client</p><p class="r-src">Alignable</p></div>
-    <div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Quality plants and the unusual. A hidden gem of Oklahoma City &mdash; I can't ever walk out with just one plant.</p><p class="r-name">Verified Customer</p><p class="r-src">Google</p></div>
-    <div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">They understand that plants aren't just decoration &mdash; they're part of how our space makes people feel. Consistent, professional, and a true design partner.</p><p class="r-name">Commercial Client</p><p class="r-src">Oklahoma City</p></div>
-    <div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Plant lovers' heaven. Always new stock, fantastic quality, and staff who help you find exactly the right fit for your space.</p><p class="r-name">Verified Customer</p><p class="r-src">Google</p></div>
-    <div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Calvert's has become our go-to for commercial projects. Professional execution and a true understanding of client needs.</p><p class="r-name">Commercial Designer</p><p class="r-src">Oklahoma City</p></div>
-  </div></div>
-  <div class="carousel-controls">
-    <div class="dots" id="tDots"></div>
-    <div class="arrows">
-      <button class="arrow-btn" onclick="moveT(-1)" aria-label="Previous">&#8592;</button>
-      <button class="arrow-btn" onclick="moveT(1)" aria-label="Next">&#8594;</button>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="about-left">
-    <div class="about-wm">1976</div>
-    <span class="section-label reveal">Our History</span>
-    <h2 class="section-title reveal" style="margin-bottom:1.4rem;">Rooted in<br><em>Oklahoma</em></h2>
-    <p class="about-body reveal">Calvert's Plant Interiors has been Oklahoma's most trusted name in live plant design since 1976. Our grounds have served as a greenhouse since 1907 &mdash; before Oklahoma was even a state.</p>
-    <p class="about-body reveal">We are a small, locally owned business with a wide reach. Our designers, maintenance team, and greenhouse staff bring the resources and passion to make any space feel alive.</p>
-    <p class="about-body reveal">Nationally recognized &mdash; proud members of the National Interiorscape Network, Green Plants for Green Buildings, BOMA, IFMA, and AIA.</p>
-  </div>
-  <div class="about-right">
-    <div class="facts">
-      <div class="fact-row reveal"><span class="fact-n">119</span><p class="fact-t"><strong>Years of history on these grounds.</strong> A greenhouse has operated at our location since 1907.</p></div>
-      <div class="fact-row reveal d1"><span class="fact-n">45+</span><p class="fact-t"><strong>Years serving Oklahoma.</strong> Calvert's has earned the trust of the state's most distinguished venues.</p></div>
-      <div class="fact-row reveal d2"><span class="fact-n">100%</span><p class="fact-t"><strong>Locally owned and operated.</strong> Every dollar stays in Oklahoma.</p></div>
-    </div>
-    <a href="#booking" class="btn-green reveal" style="max-width:260px;">Book Your Consultation</a>
-  </div>
-</section>
-
-<section class="booking" id="booking">
-  <div class="booking-grid">
-    <div class="bk-copy">
-      <span class="section-label reveal">This Month</span>
-      <h2 class="section-title reveal">Book a Free<br><em>Design Consultation</em></h2>
-      <p class="reveal">One of our designers will meet you on-site &mdash; no cost, no obligation.</p>
-      <div class="checklist reveal">
-        <div class="chk"><span class="chk-mark">&#10003;</span>Custom plant design for your space, light, and style</div>
-        <div class="chk"><span class="chk-mark">&#10003;</span>Ongoing maintenance &mdash; we handle everything after install</div>
-        <div class="chk"><span class="chk-mark">&#10003;</span>Commercial and residential projects of any scale</div>
-        <div class="chk"><span class="chk-mark">&#10003;</span>45 years of nationally recognized design experience</div>
-      </div>
-      <div class="slots-avail reveal">
-        <div class="sa-top"><span class="sa-lbl">Slot Availability</span><span><span class="sa-num">4</span><span class="sa-of">/ 12 remaining</span></span></div>
-        <div class="sa-track"><div class="sa-fill" id="saFill"></div></div>
-        <p class="sa-note"><strong>Filling fast.</strong> This month's slots close at month end.</p>
-      </div>
-    </div>
-    <div class="cal-card reveal">
-      <div class="bk-succ" id="bkSucc"><p class="succ-h">You're on the calendar.</p><p class="succ-b" id="succMsg"></p></div>
-      <div id="calWidget">
-        <div class="cal-hdr">
-          <div class="cal-hdr-top"><span class="cal-title">Schedule a Consultation</span><span class="cal-badge">Free &amp; No Obligation</span></div>
-          <p class="cal-sub">Takes less than 2 minutes</p>
-        </div>
-        <div class="cal-body">
-          <div id="step1">
-            <span class="type-lbl">What kind of space is this for?</span>
-            <div class="type-btns">
-              <button class="type-btn" onclick="pickType('Commercial',this)">
-                <svg class="tb-icon" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="19" rx="1" stroke="#3d8c3d" stroke-width="1.5"/><path d="M9 25V17h10v8" stroke="#3d8c3d" stroke-width="1.5"/><path d="M3 12h22" stroke="#3d8c3d" stroke-width="1.5"/><rect x="8" y="3" width="12" height="3" fill="#3d8c3d" opacity=".35"/></svg>
-                <span class="tb-name">Commercial</span><span class="tb-desc">Office, lobby, retail, restaurant</span>
-              </button>
-              <button class="type-btn" onclick="pickType('Residential',this)">
-                <svg class="tb-icon" viewBox="0 0 28 28" fill="none"><path d="M4 14L14 4l10 10" stroke="#3d8c3d" stroke-width="1.5"/><path d="M7 11v12h5v-6h4v6h5V11" stroke="#3d8c3d" stroke-width="1.5"/></svg>
-                <span class="tb-name">Residential</span><span class="tb-desc">Home, patio, personal space</span>
-              </button>
-            </div>
-            <button class="type-next" id="typeNext" onclick="goStep2()">Continue &mdash; Choose a Date &rarr;</button>
-          </div>
-          <div class="step2" id="step2">
-            <button class="back-btn" onclick="goStep1()">&#8592; Back</button>
-            <div class="type-pill" id="typePill"></div>
-            <div class="cal-nav">
-              <button class="cal-nb" onclick="chMon(-1)">&#8592;</button>
-              <span class="cal-month-lbl" id="calMon"></span>
-              <button class="cal-nb" onclick="chMon(1)">&#8594;</button>
-            </div>
-            <div class="cal-grid" id="calGrid">
-              <div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div>
-            </div>
-            <div class="time-slots" id="tSlots"><p class="ts-lbl">Available Times</p><div class="slots-grid" id="slotsGrid"></div></div>
-            <div class="cal-form" id="calForm">
-              <div class="sel-info" id="selInfo"></div>
-              <div class="f-row2">
-                <div class="f-grp"><label>First Name</label><input type="text" id="cfn" placeholder="Jane" autocomplete="given-name"></div>
-                <div class="f-grp"><label>Last Name</label><input type="text" id="cln" placeholder="Smith" autocomplete="family-name"></div>
-              </div>
-              <div class="f-grp"><label>Email</label><input type="email" id="cfe" placeholder="jane@company.com" autocomplete="email"></div>
-              <div class="f-grp"><label>Phone</label><input type="tel" id="cfp" placeholder="(405) 555-0100" autocomplete="tel"></div>
-              <div class="f-grp"><label>Service of Interest</label>
-                <select id="cfs"><option value="" disabled selected>Select...</option><option>Interior Plantscaping</option><option>Exterior / Patioscape</option><option>Living Green Wall</option><option>Holiday Decorating</option><option>Event Rentals</option><option>Not Sure</option></select>
-              </div>
-              <button class="form-btn" onclick="confirmBk()">Confirm My Consultation</button>
-              <span class="just-call">Prefer to talk? <a href="tel:4058486642">(405) 848-6642</a></span>
-            </div>
-          </div>
-          <div class="or-div">or reach us directly</div>
-          <div class="alt-contact"><a href="tel:4058486642">(405) 848-6642</a><a href="mailto:create@calverts.com">create@calverts.com</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="footer">
-  <div class="footer-brand">
-    <div class="footer-logo"><img src="https://static.wixstatic.com/media/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png/v1/fill/w_425,h_141,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png" alt="Calvert's Plant Interiors"></div>
-    <p class="footer-tagline">Oklahoma's leading interiorscape company &mdash; designing and caring for live plants since 1976.</p>
-    <div class="footer-contact"><a href="tel:4058486642">(405) 848-6642</a><br><a href="mailto:create@calverts.com">create@calverts.com</a><br>5308 N Classen Blvd, OKC</div>
-  </div>
-  <div class="footer-cols">
-    <div><p class="fc-title">Services</p><ul class="fc-links"><li><a href="https://www.calverts.com/interiorscape">Interior Plantscaping</a></li><li><a href="https://www.calverts.com/exteriorscape">Exterior &amp; Patioscape</a></li><li><a href="https://www.calverts.com/green-walls">Green Walls</a></li><li><a href="https://www.calverts.com/holiday">Holiday Decorating</a></li><li><a href="https://www.calverts.com/event-rentals">Event Rentals</a></li></ul></div>
-    <div><p class="fc-title">Connect</p><ul class="fc-links"><li><a href="https://www.instagram.com/calvertsplantinteriors">Instagram</a></li><li><a href="https://www.facebook.com/CalvertsPlantsOKC/">Facebook</a></li><li><a href="https://www.tiktok.com/@calvertsplantinteriors">TikTok</a></li><li><a href="https://www.linkedin.com/company/calvert's-plant-interiors/">LinkedIn</a></li><li><a href="https://www.youtube.com/@underthefronds49">YouTube</a></li></ul></div>
-  </div>
-</div>
-<div class="footer-bottom">
-  <p>&copy; 2026 Calvert's Plant Interiors, Inc. All rights reserved.</p>
-  <span class="footer-est">Est. 1976 &middot; Greenhouse Since 1907</span>
-</div>
-
+</svg></div><div class="hero-content"><p class="eyebrow">Oklahoma City's Premier Interiorscape Company</p><h1 class="hero-h">Bring <em>Nature</em><br>Indoors.</h1><p class="hero-sub">Calvert's has designed, installed, and maintained living plants in Oklahoma's finest spaces for nearly 50 years. We handle everything &mdash; so you simply enjoy.</p><div class="hero-actions"><a href="#booking" class="btn-green">Book a Free Consultation</a><a href="#portfolio" class="btn-ghost">See Our Work</a></div><div class="slot-badge"><span class="slot-dot"></span><span class="slot-txt"><strong>4 spring slots remaining</strong>end of this month</span></div></div></section>
+<div class="stats-bar"><div class="stat-item"><span class="stat-n">1976</span><span class="stat-l">Year Established</span></div><div class="stat-item"><span class="stat-n">45+</span><span class="stat-l">Years Serving Oklahoma</span></div><div class="stat-item"><span class="stat-n">10K+</span><span class="stat-l">Sq Ft Greenhouse</span></div><div class="stat-item"><span class="stat-n">#1</span><span class="stat-l">Interiorscape in OKC</span></div></div>
+<section class="process"><div class="sh"><span class="section-label reveal">How It Works</span><h2 class="section-title reveal">From <em>Consultation</em><br>to Thriving Space</h2></div><div class="process-steps"><div class="step reveal"><div class="step-num">01</div><div class="step-body"><h3 class="step-name">Consult</h3><p class="step-desc">A complimentary on-site session where we learn your space, goals, and aesthetic.</p></div></div><div class="step reveal d1"><div class="step-num">02</div><div class="step-body"><h3 class="step-name">Design</h3><p class="step-desc">A custom plant plan &mdash; species, pottery, placement, and lighting.</p></div></div><div class="step reveal d2"><div class="step-num">03</div><div class="step-body"><h3 class="step-name">Install</h3><p class="step-desc">Our crew handles delivery and full setup. Walk in and appreciate it.</p></div></div><div class="step reveal d1"><div class="step-num">04</div><div class="step-body"><h3 class="step-name">Maintain</h3><p class="step-desc">Our horticulturists visit on your schedule &mdash; watering, pruning, replacing.</p></div></div><div class="step reveal d2"><div class="step-num">05</div><div class="step-body"><h3 class="step-name">Enjoy</h3><p class="step-desc">A living space that looks extraordinary and stays that way &mdash; guaranteed.</p></div></div></div></section>
+<section class="services" id="services"><div class="sh"><span class="section-label reveal">What We Offer</span><h2 class="section-title reveal">Expert Design for<br><em>Every Environment</em></h2></div><div class="services-grid"><div class="svc-card reveal"><span class="svc-tag">Commercial &amp; Residential</span><h3 class="svc-name">Interior Plantscaping</h3><p class="svc-desc">Bespoke living plant installations for offices, lobbies, hotels, restaurants, and homes &mdash; designed, delivered, and maintained.</p></div><div class="svc-card reveal d1"><span class="svc-tag">Outdoor Spaces</span><h3 class="svc-name">Exterior &amp; Patioscape</h3><p class="svc-desc">Seasonal planting, statement planters, patios, and entryways that create a lasting first impression.</p></div><div class="svc-card reveal d2"><span class="svc-tag">Architectural</span><h3 class="svc-name">Living Green Walls</h3><p class="svc-desc">Floor-to-ceiling plant installations serving as living art &mdash; improving air quality and transforming architecture.</p></div><div class="svc-card reveal"><span class="svc-tag">Seasonal</span><h3 class="svc-name">Holiday Decorating</h3><p class="svc-desc">Full-service holiday installation. We install, manage, and remove &mdash; no effort required.</p></div><div class="svc-card reveal d1"><span class="svc-tag">Special Occasions</span><h3 class="svc-name">Event Rentals</h3><p class="svc-desc">Premium tropical plant rentals for galas, corporate events, weddings, and productions throughout Oklahoma.</p></div><div class="svc-card reveal d2"><span class="svc-tag">Oklahoma City</span><h3 class="svc-name">Retail Greenhouse</h3><p class="svc-desc">Over 10,000 sq ft of tropical plants and pottery at 5308 N Classen Blvd &mdash; expert staff ready to help.</p></div></div></section>
+<section class="clients"><p class="clients-lbl">Trusted by Oklahoma's most recognized organizations</p><div class="clients-row"><span class="client-name">OKC Thunder</span><span class="client-name">OKC Philharmonic</span><span class="client-name">Myriad Gardens</span><span class="client-name">OKC Ballet</span><span class="client-name">OU Children's Hospital</span><span class="client-name">Vast Restaurant</span></div></section>
+<section class="portfolio" id="portfolio"><div class="sh" style="margin-bottom:0"><span class="section-label reveal">Our Work</span><h2 class="section-title reveal">Spaces We've<br><em>Transformed</em></h2></div><div class="portfolio-strip reveal"><div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg" alt="Interior Installation" loading="lazy"><div class="port-overlay"><div class="port-caption">Interior Installation<span>OKC Commercial</span></div></div></div><div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg" alt="Bespoke Design" loading="lazy"><div class="port-overlay"><div class="port-caption">Bespoke Design<span>Oklahoma City</span></div></div></div><div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg" alt="Tropical Selection" loading="lazy"><div class="port-overlay"><div class="port-caption">Tropical Selection<span>5308 N Classen</span></div></div></div><div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg" alt="Office Planting" loading="lazy"><div class="port-overlay"><div class="port-caption">Office Planting<span>Northwest OKC</span></div></div></div><div class="port-cell"><img src="https://static.wixstatic.com/media/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg" alt="Commercial Space" loading="lazy"><div class="port-overlay"><div class="port-caption">Commercial Space<span>Oklahoma City</span></div></div></div></div><p class="port-hint">Swipe to explore</p><div class="portfolio-grid"><div class="port-cell-d tall"><img src="https://static.wixstatic.com/media/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_9926f73598a345989858b49c2dce19d1~mv2.jpg" alt="Interior Installation" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Interior Installation<span>OKC Commercial</span></div></div></div><div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_6e55153a6e8444b9b639ea8403edd296~mv2.jpg" alt="Bespoke Design" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Bespoke Design<span>Oklahoma City</span></div></div></div><div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_a271701d1b5b475eb790ae36beb5ab9f~mv2.jpg" alt="Tropical Selection" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Tropical Selection<span>5308 N Classen</span></div></div></div><div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_428fd971870b40a4aa261315aa6d7adb~mv2.jpg" alt="Office Planting" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Office Planting<span>Northwest OKC</span></div></div></div><div class="port-cell-d"><img src="https://static.wixstatic.com/media/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg/v1/fill/w_800,h_600,q_90,enc_avif,quality_auto/da58a4_2326d9b5aefa4910b90070fece633d0f~mv2.jpg" alt="Commercial Space" loading="lazy"><div class="port-overlay-d"><div class="port-caption-d">Commercial Space<span>Oklahoma City</span></div></div></div></div><div class="portfolio-cta reveal"><p>Real work by our team &mdash; every installation designed and maintained by Calvert's.</p><a href="#booking" class="btn-green" style="max-width:320px;margin:0 auto;">Start with a Free Consultation</a></div></section>
+<section class="testimonials" id="testimonials"><div class="tests-header"><div class="sh" style="margin-bottom:0"><span class="section-label reveal">What Clients Say</span><h2 class="section-title reveal">Trusted by<br><em>Oklahoma</em></h2></div><div class="rating-row reveal"><div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><span class="rating-txt">4.8 &middot; Google, Yelp &amp; WeddingWire</span></div></div><div class="t-track-wrap reveal" id="tWrap"><div class="t-track" id="tTrack"><div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Doris and Todd were always quick to respond and didn't mind when I changed my mind. I never had to lift a finger. Everything turned out beautifully.</p><p class="r-name">Verified Client</p><p class="r-src">WeddingWire</p></div><div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Never had a bad plant design. The staff is knowledgeable, friendly, and genuinely passionate about what they do.</p><p class="r-name">Verified Client</p><p class="r-src">Alignable</p></div><div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Quality plants and the unusual. A hidden gem of Oklahoma City — I can't ever walk out with just one plant.</p><p class="r-name">Verified Customer</p><p class="r-src">Google</p></div><div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">They understand that plants aren't just decoration — they're part of how our space makes people feel. Consistent, professional, and a true design partner.</p><p class="r-name">Commercial Client</p><p class="r-src">Oklahoma City</p></div><div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Plant lovers' heaven. Always new stock, fantastic quality, and staff who help you find exactly the right fit for your space.</p><p class="r-name">Verified Customer</p><p class="r-src">Google</p></div><div class="review-card"><div class="r-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="r-quote">Calvert's has become our go-to for commercial projects. Professional execution and a true understanding of client needs.</p><p class="r-name">Commercial Designer</p><p class="r-src">Oklahoma City</p></div></div></div><div class="carousel-controls"><div class="dots" id="tDots"></div><div class="arrows"><button class="arrow-btn" onclick="moveT(-1)" aria-label="Previous">&#8592;</button><button class="arrow-btn" onclick="moveT(1)" aria-label="Next">&#8594;</button></div></div></section>
+<section class="about" id="about"><div class="about-left"><div class="about-wm">1976</div><span class="section-label reveal">Our History</span><h2 class="section-title reveal" style="margin-bottom:1.2rem;">Rooted in<br><em>Oklahoma</em></h2><p class="about-body reveal">Calvert's Plant Interiors has been Oklahoma's most trusted name in live plant design since 1976. Our grounds have served as a greenhouse since 1907 &mdash; before Oklahoma was even a state.</p><p class="about-body reveal">We are a small, locally owned business with a wide reach. Our designers, maintenance team, and greenhouse staff bring the resources and passion to make any space feel alive.</p><p class="about-body reveal">Nationally recognized &mdash; proud members of the National Interiorscape Network, Green Plants for Green Buildings, BOMA, IFMA, and AIA.</p></div><div class="about-right"><div class="facts"><div class="fact-row reveal"><span class="fact-n">119</span><p class="fact-t"><strong>Years of history on these grounds.</strong> A greenhouse has operated at our location since 1907.</p></div><div class="fact-row reveal d1"><span class="fact-n">45+</span><p class="fact-t"><strong>Years serving Oklahoma.</strong> Calvert's has earned the trust of the state's most distinguished venues.</p></div><div class="fact-row reveal d2"><span class="fact-n">100%</span><p class="fact-t"><strong>Locally owned and operated.</strong> Every dollar stays in Oklahoma.</p></div></div><a href="#booking" class="btn-green reveal" style="max-width:260px;">Book Your Consultation</a></div></section>
+<section class="booking" id="booking"><div class="booking-grid"><div class="bk-copy"><span class="section-label reveal">This Month</span><h2 class="section-title reveal">Book a Free<br><em>Design Consultation</em></h2><p class="reveal">One of our designers will meet you on-site &mdash; no cost, no obligation.</p><div class="checklist reveal"><div class="chk"><span class="chk-mark">&#10003;</span>Custom plant design for your space, light, and style</div><div class="chk"><span class="chk-mark">&#10003;</span>Ongoing maintenance &mdash; we handle everything after install</div><div class="chk"><span class="chk-mark">&#10003;</span>Commercial and residential projects of any scale</div><div class="chk"><span class="chk-mark">&#10003;</span>45 years of nationally recognized design experience</div></div><div class="slots-avail reveal"><div class="sa-top"><span class="sa-lbl">Slot Availability</span><span><span class="sa-num">4</span><span class="sa-of">/ 12 remaining</span></span></div><div class="sa-track"><div class="sa-fill" id="saFill"></div></div><p class="sa-note"><strong>Filling fast.</strong> This month's slots close at month end.</p></div></div><div class="cal-card reveal"><div class="bk-succ" id="bkSucc"><p class="succ-h">You're on the calendar.</p><p class="succ-b" id="succMsg"></p></div><div id="calWidget"><div class="cal-hdr"><div class="cal-hdr-top"><span class="cal-title">Schedule a Consultation</span><span class="cal-badge">Free &amp; No Obligation</span></div><p class="cal-sub">Takes less than 2 minutes</p></div><div class="cal-body"><div id="step1"><span class="type-lbl">What kind of space is this for?</span><div class="type-btns"><button class="type-btn" onclick="pickType('Commercial',this)"><svg class="tb-icon" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="19" rx="1" stroke="#3d8c3d" stroke-width="1.5"/><path d="M9 25V17h10v8" stroke="#3d8c3d" stroke-width="1.5"/><path d="M3 12h22" stroke="#3d8c3d" stroke-width="1.5"/><rect x="8" y="3" width="12" height="3" fill="#3d8c3d" opacity=".35"/></svg><span class="tb-name">Commercial</span><span class="tb-desc">Office, lobby, retail, restaurant</span></button><button class="type-btn" onclick="pickType('Residential',this)"><svg class="tb-icon" viewBox="0 0 28 28" fill="none"><path d="M4 14L14 4l10 10" stroke="#3d8c3d" stroke-width="1.5"/><path d="M7 11v12h5v-6h4v6h5V11" stroke="#3d8c3d" stroke-width="1.5"/></svg><span class="tb-name">Residential</span><span class="tb-desc">Home, patio, personal space</span></button></div><button class="type-next" id="typeNext" onclick="goStep2()">Continue &mdash; Choose a Date &rarr;</button></div><div class="step2" id="step2"><button class="back-btn" onclick="goStep1()">&#8592; Back</button><div class="type-pill" id="typePill"></div><div class="cal-nav"><button class="cal-nb" onclick="chMon(-1)">&#8592;</button><span class="cal-month-lbl" id="calMon"></span><button class="cal-nb" onclick="chMon(1)">&#8594;</button></div><div class="cal-grid" id="calGrid"><div class="cal-dow">Su</div><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div></div><div class="time-slots" id="tSlots"><p class="ts-lbl">Available Times</p><div class="slots-grid" id="slotsGrid"></div></div><div class="cal-form" id="calForm"><div class="sel-info" id="selInfo"></div><div class="f-row2"><div class="f-grp"><label>First Name</label><input type="text" id="cfn" placeholder="Jane" autocomplete="given-name"></div><div class="f-grp"><label>Last Name</label><input type="text" id="cln" placeholder="Smith" autocomplete="family-name"></div></div><div class="f-grp"><label>Email</label><input type="email" id="cfe" placeholder="jane@company.com" autocomplete="email"></div><div class="f-grp"><label>Phone</label><input type="tel" id="cfp" placeholder="(405) 555-0100" autocomplete="tel"></div><div class="f-grp"><label>Service of Interest</label><select id="cfs"><option value="" disabled selected>Select...</option><option>Interior Plantscaping</option><option>Exterior / Patioscape</option><option>Living Green Wall</option><option>Holiday Decorating</option><option>Event Rentals</option><option>Not Sure</option></select></div><button class="form-btn" onclick="confirmBk()">Confirm My Consultation</button><span class="just-call">Prefer to talk? <a href="tel:4058486642">(405) 848-6642</a></span></div></div><div class="or-div">or reach us directly</div><div class="alt-contact"><a href="tel:4058486642">(405) 848-6642</a><a href="mailto:create@calverts.com">create@calverts.com</a></div></div></div></div></div></div></section>
+<div class="footer"><div class="footer-brand"><div class="footer-logo"><img src="https://static.wixstatic.com/media/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png/v1/fill/w_425,h_141,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/da58a4_dd8678d97d8e4b83b6b1da0f10c72ee9~mv2.png" alt="Calvert's Plant Interiors"></div><p class="footer-tagline">Oklahoma's leading interiorscape company &mdash; designing and caring for live plants since 1976.</p><div class="footer-contact"><a href="tel:4058486642">(405) 848-6642</a><br><a href="mailto:create@calverts.com">create@calverts.com</a><br>5308 N Classen Blvd, OKC</div></div><div class="footer-cols"><div><p class="fc-title">Services</p><ul class="fc-links"><li><a href="https://www.calverts.com/interiorscape">Interior Plantscaping</a></li><li><a href="https://www.calverts.com/exteriorscape">Exterior &amp; Patioscape</a></li><li><a href="https://www.calverts.com/green-walls">Green Walls</a></li><li><a href="https://www.calverts.com/holiday">Holiday Decorating</a></li><li><a href="https://www.calverts.com/event-rentals">Event Rentals</a></li></ul></div><div><p class="fc-title">Connect</p><ul class="fc-links"><li><a href="https://www.instagram.com/calvertsplantinteriors">Instagram</a></li><li><a href="https://www.facebook.com/CalvertsPlantsOKC/">Facebook</a></li><li><a href="https://www.tiktok.com/@calvertsplantinteriors">TikTok</a></li><li><a href="https://www.linkedin.com/company/calvert's-plant-interiors/">LinkedIn</a></li><li><a href="https://www.youtube.com/@underthefronds49">YouTube</a></li></ul></div></div></div><div class="footer-bottom"><p>&copy; 2026 Calvert's Plant Interiors, Inc. All rights reserved.</p><span class="footer-est">Est. 1976 &middot; Greenhouse Since 1907</span></div>
 <script>
 
-function checkPort() {
+function checkPort(){
   var g=document.querySelector('.portfolio-grid'),s=document.querySelector('.portfolio-strip'),h=document.querySelector('.port-hint'),d=window.innerWidth>=1024;
   if(g)g.style.display=d?'grid':'none';
   if(s)s.style.display=d?'none':'flex';
   if(h)h.style.display=d?'none':'block';
 }
 checkPort(); window.addEventListener('resize',checkPort);
-
 if('IntersectionObserver' in window){
   var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}});},{threshold:.08});
   document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
 }
-
 (function(){
-  var lf=document.getElementById('heroPlant'),tk=false,bg=document.getElementById('heroBg');
-  if(!lf)return;
+  var bg=document.getElementById('heroBg'),tk=false;
+  if(!bg)return;
   window.addEventListener('scroll',function(){
-    if(!tk){requestAnimationFrame(function(){
-      var y=window.scrollY;
-      if(bg)bg.style.transform='translateY('+Math.round(y*.38)+'px)';
-      tk=false;
-    });tk=true;}
+    if(!tk){requestAnimationFrame(function(){bg.style.transform='translateY('+Math.round(window.scrollY*.38)+'px)';tk=false;});tk=true;}
   },{passive:true});
 })();
-
 function tick(){
-  var diff=new Date('2026-03-31T23:59:59')-new Date();
-  if(diff<=0)return;
+  var diff=new Date('2026-03-31T23:59:59')-new Date();if(diff<=0)return;
   var el;
   el=document.getElementById('cdD');if(el)el.textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
   el=document.getElementById('cdH');if(el)el.textContent=String(Math.floor((diff%86400000)/3600000)).padStart(2,'0');
   el=document.getElementById('cdM');if(el)el.textContent=String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
 }
-tick(); setInterval(tick,60000);
-
+tick();setInterval(tick,60000);
 setTimeout(function(){var f=document.getElementById('saFill');if(f)f.style.width='33%';},700);
-
 var tTrack=document.getElementById('tTrack'),dotsEl=document.getElementById('tDots'),ci=0;
 var rcards=tTrack?tTrack.querySelectorAll('.review-card'):[];
 function gpv(){return window.innerWidth>=1024?3:window.innerWidth>=640?2:1;}
 function buildDots(){
   if(!dotsEl||!rcards.length)return;
-  var max=rcards.length-gpv(); dotsEl.innerHTML='';
+  var max=rcards.length-gpv();dotsEl.innerHTML='';
   for(var i=0;i<=max;i++){var d=document.createElement('button');d.className='dot'+(i===ci?' active':'');d.setAttribute('aria-label','Review '+(i+1));(function(idx){d.onclick=function(){goTo(idx);};})(i);dotsEl.appendChild(d);}
 }
 function goTo(i){
   if(!rcards.length)return;
-  var max=rcards.length-gpv(); ci=Math.max(0,Math.min(i,max));
+  var max=rcards.length-gpv();ci=Math.max(0,Math.min(i,max));
   var w=rcards[0].offsetWidth+16;
   if(tTrack)tTrack.style.transform='translateX(-'+(ci*w)+'px)';
   document.querySelectorAll('.dot').forEach(function(d,x){d.classList.toggle('active',x===ci);});
 }
 function moveT(dir){goTo(ci+dir);}
-buildDots(); window.addEventListener('resize',function(){buildDots();goTo(0);});
+buildDots();window.addEventListener('resize',function(){buildDots();goTo(0);});
 var tsX=0,tWrap=document.getElementById('tWrap');
 if(tWrap){
   tWrap.addEventListener('touchstart',function(e){tsX=e.touches[0].clientX;},{passive:true});
   tWrap.addEventListener('touchend',function(e){var dx=tsX-e.changedTouches[0].clientX;if(Math.abs(dx)>40)moveT(dx>0?1:-1);},{passive:true});
 }
-
 var selType='',selDay=null,selTime=null,calY=2026,calM=2;
 var MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
 var TM=['8:00 AM','9:00 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
 var BUSY=[8,9,15,16,22,23,29,30];
-
-function pickType(t,btn){
-  selType=t;
-  document.querySelectorAll('.type-btn').forEach(function(b){b.classList.remove('sel');});
-  btn.classList.add('sel');
-  var tn=document.getElementById('typeNext'); if(tn)tn.classList.add('on');
-}
-function goStep2(){
-  if(!selType)return;
-  var s1=document.getElementById('step1'),s2=document.getElementById('step2'),tp=document.getElementById('typePill');
-  if(s1)s1.style.display='none'; if(s2)s2.classList.add('vis'); if(tp)tp.textContent=selType+' Consultation';
-  renderCal();
-}
-function goStep1(){
-  var s1=document.getElementById('step1'),s2=document.getElementById('step2');
-  if(s1)s1.style.display='block'; if(s2)s2.classList.remove('vis');
-  selDay=null; selTime=null;
-  var ts=document.getElementById('tSlots'),cf=document.getElementById('calForm');
-  if(ts)ts.classList.remove('vis'); if(cf)cf.classList.remove('vis');
-}
+function pickType(t,btn){selType=t;document.querySelectorAll('.type-btn').forEach(function(b){b.classList.remove('sel');});btn.classList.add('sel');var tn=document.getElementById('typeNext');if(tn)tn.classList.add('on');}
+function goStep2(){if(!selType)return;var s1=document.getElementById('step1'),s2=document.getElementById('step2'),tp=document.getElementById('typePill');if(s1)s1.style.display='none';if(s2)s2.classList.add('vis');if(tp)tp.textContent=selType+' Consultation';renderCal();}
+function goStep1(){var s1=document.getElementById('step1'),s2=document.getElementById('step2');if(s1)s1.style.display='block';if(s2)s2.classList.remove('vis');selDay=null;selTime=null;var ts=document.getElementById('tSlots'),cf=document.getElementById('calForm');if(ts)ts.classList.remove('vis');if(cf)cf.classList.remove('vis');}
 function renderCal(){
-  var ml=document.getElementById('calMon'); if(ml)ml.textContent=MN[calM]+' '+calY;
-  var grid=document.getElementById('calGrid'); if(!grid)return;
-  var dows=Array.from(grid.querySelectorAll('.cal-dow')); grid.innerHTML='';
-  dows.forEach(function(d){grid.appendChild(d);});
+  var ml=document.getElementById('calMon');if(ml)ml.textContent=MN[calM]+' '+calY;
+  var grid=document.getElementById('calGrid');if(!grid)return;
+  var dows=Array.from(grid.querySelectorAll('.cal-dow'));grid.innerHTML='';dows.forEach(function(d){grid.appendChild(d);});
   var today=new Date(2026,2,6),fd=new Date(calY,calM,1).getDay(),dim=new Date(calY,calM+1,0).getDate();
   for(var i=0;i<fd;i++){var e=document.createElement('div');e.className='cal-day';grid.appendChild(e);}
   for(var d=1;d<=dim;d++){
     var btn=document.createElement('button'),td=new Date(calY,calM,d),dow=td.getDay(),isT=(d===6&&calM===2&&calY===2026);
-    btn.textContent=d; btn.setAttribute('aria-label',MN[calM]+' '+d);
+    btn.textContent=d;btn.setAttribute('aria-label',MN[calM]+' '+d);
     if(td<today||dow===0||dow===6||BUSY.indexOf(d)>-1){btn.className='cal-day past';btn.disabled=true;}
     else if(isT){btn.className='cal-day today avail';(function(dd,bb){bb.onclick=function(){pickDay(dd,bb);};})(d,btn);}
     else{btn.className='cal-day avail';(function(dd,bb){bb.onclick=function(){pickDay(dd,bb);};})(d,btn);}
-    if(d===selDay)btn.classList.add('picked'); grid.appendChild(btn);
+    if(d===selDay)btn.classList.add('picked');grid.appendChild(btn);
   }
 }
 function pickDay(d,btn){
-  selDay=d; selTime=null;
-  document.querySelectorAll('.cal-day').forEach(function(b){b.classList.remove('picked');}); btn.classList.add('picked');
-  var sg=document.getElementById('slotsGrid'); if(!sg)return; sg.innerHTML='';
+  selDay=d;selTime=null;
+  document.querySelectorAll('.cal-day').forEach(function(b){b.classList.remove('picked');});btn.classList.add('picked');
+  var sg=document.getElementById('slotsGrid');if(!sg)return;sg.innerHTML='';
   TM.forEach(function(t){
-    var s=document.createElement('div'); s.className='slot'; s.textContent=t;
-    s.setAttribute('role','button'); s.setAttribute('tabindex','0');
-    var pick=function(){
-      selTime=t;
-      document.querySelectorAll('.slot').forEach(function(x){x.classList.remove('sel');}); s.classList.add('sel');
-      var si=document.getElementById('selInfo'); if(si)si.textContent=MN[calM]+' '+selDay+', '+calY+' at '+selTime;
-      var cf=document.getElementById('calForm'); if(cf)cf.classList.add('vis');
-    };
-    s.onclick=pick; s.onkeydown=function(e){if(e.key==='Enter'||e.key===' ')pick();}; sg.appendChild(s);
+    var s=document.createElement('div');s.className='slot';s.textContent=t;s.setAttribute('role','button');s.setAttribute('tabindex','0');
+    var pick=function(){selTime=t;document.querySelectorAll('.slot').forEach(function(x){x.classList.remove('sel');});s.classList.add('sel');var si=document.getElementById('selInfo');if(si)si.textContent=MN[calM]+' '+selDay+', '+calY+' at '+selTime;var cf=document.getElementById('calForm');if(cf)cf.classList.add('vis');};
+    s.onclick=pick;s.onkeydown=function(e){if(e.key==='Enter'||e.key===' ')pick();};sg.appendChild(s);
   });
   var ts=document.getElementById('tSlots'),cf=document.getElementById('calForm');
-  if(ts)ts.classList.add('vis'); if(cf)cf.classList.remove('vis');
+  if(ts)ts.classList.add('vis');if(cf)cf.classList.remove('vis');
   if(window.innerWidth<1024&&ts)ts.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
-function chMon(dir){
-  calM+=dir; if(calM>11){calM=0;calY++;}if(calM<0){calM=11;calY--;}
-  selDay=null; selTime=null;
-  var ts=document.getElementById('tSlots'),cf=document.getElementById('calForm');
-  if(ts)ts.classList.remove('vis'); if(cf)cf.classList.remove('vis'); renderCal();
-}
+function chMon(dir){calM+=dir;if(calM>11){calM=0;calY++;}if(calM<0){calM=11;calY--;}selDay=null;selTime=null;var ts=document.getElementById('tSlots'),cf=document.getElementById('calForm');if(ts)ts.classList.remove('vis');if(cf)cf.classList.remove('vis');renderCal();}
 function confirmBk(){
   var n=document.getElementById('cfn'),e=document.getElementById('cfe');
   if(!n||!e||!n.value.trim()||!e.value.trim()){alert('Please enter your name and email.');return;}
   if(!selDay||!selTime){alert('Please select a date and time.');return;}
   var cw=document.getElementById('calWidget'),bs=document.getElementById('bkSucc'),sm=document.getElementById('succMsg');
   if(cw)cw.style.display='none';
-  if(sm)sm.textContent='Your '+selType.toLowerCase()+' consultation is confirmed for '+MN[calM]+' '+selDay+', '+calY+' at '+selTime+'. A confirmation will be sent to '+e.value.trim()+' within one business day.';
+  if(sm)sm.textContent='Your '+selType.toLowerCase()+' consultation is confirmed for '+MN[calM]+' '+selDay+', '+calY+' at '+selTime+'. We will send a confirmation to '+e.value.trim()+' within one business day.';
   if(bs)bs.classList.add('on');
 }
-
 var eiShown=false;
 function showEI(){if(eiShown)return;eiShown=true;setTimeout(function(){var ov=document.getElementById('eiOverlay');if(ov)ov.classList.add('vis');},350);}
 window.addEventListener('scroll',function(){if(eiShown)return;if((window.scrollY+window.innerHeight)/document.body.scrollHeight>0.72)showEI();},{passive:true});
@@ -762,7 +475,7 @@ function submitEI(){
   var e=document.getElementById('eiEmail');
   if(!e||!e.value.trim()||e.value.indexOf('@')<0){if(e)e.style.borderColor='#ef4444';return;}
   var eb=document.getElementById('eiBody'),es=document.getElementById('eiSucc');
-  if(eb)eb.style.display='none'; if(es)es.classList.add('on');
+  if(eb)eb.style.display='none';if(es)es.classList.add('on');
   setTimeout(closeEI,3200);
 }
 var eiOv=document.getElementById('eiOverlay');
